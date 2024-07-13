@@ -13,6 +13,13 @@ class AboutUsPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            // Added Application Name Text
+            Text(
+              'Application Name: FoodCater',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 16),
+            // Existing Group Text
             Text(
               'Group: RCDCS2515B',
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
@@ -42,25 +49,54 @@ class AboutUsPage extends StatelessWidget {
               '3. Muhammad Aysar bin Mahmad Yusup (2023189277)',
               style: TextStyle(fontSize: 16),
             ),
+            SizedBox(height: 16), // Space before the copyright text
+            Text(
+              '© 2024 FoodCater. All rights reserved.',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
             Spacer(),
             Center(
-              child: GestureDetector(
-                onTap: () async {
-                  const url = 'https://www.youtube.com';
-                  if (await canLaunch(url)) {
-                    await launch(url);
-                  } else {
-                    throw 'Could not launch $url';
-                  }
-                },
-                child: Text(
-                  'GitHub',
-                  style: TextStyle(
-                    fontSize: 18,
-                    color: Colors.blue,
-                    decoration: TextDecoration.underline,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  GestureDetector(
+                    onTap: () async {
+                      const url = 'https://github.com/4arif401/food_truck_app';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Text(
+                      'GitHub for Web',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
                   ),
-                ),
+                  SizedBox(height: 16), // Space between links
+                  GestureDetector(
+                    onTap: () async {
+                      const url = 'https://github.com/4arif401/foodcater3';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: Text(
+                      'GitHub for Mobile',
+                      style: TextStyle(
+                        fontSize: 18,
+                        color: Colors.blue,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
